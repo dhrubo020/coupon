@@ -1,5 +1,5 @@
-const mongoose = require('mongoose'); 
-mongoose.set('useCreateIndex', true);
+const mongoose = require("mongoose");
+mongoose.set("useCreateIndex", true);
 
 const couponModel = new mongoose.Schema(
   {
@@ -10,6 +10,8 @@ const couponModel = new mongoose.Schema(
     couponCode: {
       type: String,
       required: true,
+      unique: true,
+      index: true,
     },
     couponDescription: {
       type: String,
@@ -40,4 +42,4 @@ const couponModel = new mongoose.Schema(
 );
 
 const couponSchema = mongoose.model("coupon", couponModel);
-module.exports = couponSchema
+module.exports = couponSchema;
