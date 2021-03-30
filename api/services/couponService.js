@@ -24,6 +24,10 @@ exports.apply = async (body) => {
     return "Coupon not applicable";
   }
 
+  if(new Date() > new Date(couponInfo.couponExpireDate)){
+    return "Coupon not applicable";
+  }
+
   if (couponInfo?.couponDiscountPercentage > 0) {
     let priceReduce = Math.floor(
       initPrice * (couponInfo.couponDiscountPercentage / 100)
